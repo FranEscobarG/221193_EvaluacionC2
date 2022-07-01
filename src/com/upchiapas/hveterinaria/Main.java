@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner entrada = new Scanner(System.in);
     static Cliente cliente;
-    static Mascota mascota;
+    static Expediente carnet;
     static Veterinaria veterinaria;
 
     public static void main(String[] args) {
@@ -20,6 +20,8 @@ public class Main {
             System.out.println("**     VETERINARIA LA UP     **");
             System.out.println("* [1]- Servicio Veterinario   *");
             System.out.println("* [2]- Comprar Productos      *");
+            System.out.println("* [3]- Buscar Expedinte       *");
+            System.out.println("**       [4]- SALIR          **");
             System.out.println("Elija una opcion: ");
             opcion=entrada.nextByte();
 
@@ -30,16 +32,18 @@ public class Main {
                     registrarCliente();
                     break;
                 case 2:
-
                     veterinaria.ventaProductos();
                     break;
                 case 3:
+                    //System.out.println("Ah salido del programa.");
+                    break;
+                case 4:
                     System.out.println("Ah salido del programa.");
                     break;
                 default:
                     System.out.println("Opcion invalida. Intentelo de nuevo...");
             }
-        }while(opcion!=3);
+        }while(opcion!=4);
     }
     public static void registrarCliente(){
         String nombre,id,nomMascota,idMascota;
@@ -94,14 +98,17 @@ public class Main {
             case 1:
                 Perro perro = new Perro(nomMascota,idMascota,edad,servicio,mostrarRazasPerro());
                 cliente = new Cliente(perro,nom,id);
+                carnet.agregarMascota(perro);
                 break;
             case 2:
                 Gato gato = new Gato(nomMascota,idMascota,edad,servicio,mostrarTiposGato());
                 cliente = new Cliente(gato,nom,id);
+                carnet.agregarMascota(gato);
                 break;
             case 3:
                 Roedor roedor = new Roedor(nomMascota,idMascota,edad,servicio,mostrarTiposRoedor());
                 cliente = new Cliente(roedor,nom,id);
+                carnet.agregarMascota(roedor);
                 break;
             default:
                 System.out.println("Opcion invalida.");
@@ -179,6 +186,12 @@ public class Main {
                 System.out.println("Opcion invalida.");
         }
         return tipoRoedor;
+    }
+    public static void buscarMascota(){
+        String id;
+        System.out.println("Ingrese id de la mascota");
+        id=entrada.nextLine();
+        carnet.buscarMascota(id);
     }
 
 }

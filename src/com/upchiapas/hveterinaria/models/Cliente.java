@@ -18,31 +18,12 @@ public class Cliente {
         return nombre;
     }
 
-    public void registarMascota(){
-        Scanner entrada=new Scanner(System.in);
-        byte tipoMascota;
-        System.out.println("- - - REGISTRO DE MASCOTAS - - -");
-        System.out.println("  [1]- Perro");
-        System.out.println("  [2]- Gato");
-        System.out.println("  [3]- Roedor");
-        System.out.println(" Tipo de mascota: ");
-        tipoMascota=entrada.nextByte();
-        switch (tipoMascota){
-            case 1:
-                //Roedor roedor = new Roedor();
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            default:
-                System.out.println("Opcion invalida.");
-        }
+    public Mascota getObjMascota() {
+        return objMascota;
     }
-    public void registrarRoedor(){
-        String nomMascota,idMascota;
-        int edad;
-        System.out.println("Nombre de la mascota");
+
+    public String getIdCliente() {
+        return idCliente;
     }
 
     public void setObjMascota(Mascota objMascota) {

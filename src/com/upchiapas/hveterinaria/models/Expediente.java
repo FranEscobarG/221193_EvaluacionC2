@@ -8,7 +8,12 @@ public class Expediente {
         expediente.add(mascota);
     }
 
-    public void buscarMascota(){
+    public void buscarMascota(String id){
+        for (int i=0; i<expediente.size(); i++){
+            if(id==expediente.get(i).getId()){
+
+            }
+        }
 
     }
 
